@@ -2,7 +2,7 @@
 
 set -eu
 
-cat << EOF > instance-$1.sh
+cat << EOF > instance-$1.tf
 resource "vsphere_virtual_machine" "instance-$1" {
   name             = "\${var.vmname}"
   resource_pool_id = "\${data.vsphere_resource_pool.pool.id}"
