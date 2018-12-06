@@ -8,8 +8,8 @@ resource "vsphere_virtual_machine" "instance-$1" {
   resource_pool_id = "\${data.vsphere_resource_pool.pool.id}"
   datastore_id     = "\${data.vsphere_datastore.datastore.id}"
 
-  num_cpus = \${var.cpu}
-  memory   = \${var.mem}
+  num_cpus = "\${var.cpu}"
+  memory   = "\${var.mem}"
   guest_id = "\${data.vsphere_virtual_machine.template.guest_id}"
 
   network_interface {
