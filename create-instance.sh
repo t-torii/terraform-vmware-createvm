@@ -1,4 +1,8 @@
 #!bin/bash
+#
+# create-instance.sh <id> <ip address> <num-of-cpu-core> <memory capasity MB>
+#    script file for terraform vmware instance creation
+#
 
 set -eu
 
@@ -8,8 +12,8 @@ resource "vsphere_virtual_machine" "instance-$1" {
   resource_pool_id = "\${data.vsphere_resource_pool.pool.id}"
   datastore_id     = "\${data.vsphere_datastore.datastore.id}"
 
-  num_cpus = "\${var.cpu}"
-  memory   = "\${var.mem}"
+  num_cpus = "$3"
+  memory   = "$4"
   guest_id = "\${data.vsphere_virtual_machine.template.guest_id}"
 
   network_interface {
@@ -34,7 +38,7 @@ resource "vsphere_virtual_machine" "instance-$1" {
       }
 
       network_interface {
-        ipv4_address = "\${var.ipaddress}"
+        ipv4_address = "$2"
         ipv4_netmask = 24
       }
 
