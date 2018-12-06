@@ -4,7 +4,7 @@ set -eu
 
 cat << EOF > instance-$1.tf
 resource "vsphere_virtual_machine" "instance-$1" {
-  name             = "\${var.vmname}"
+  name             = "\${var.vmname}-$1"
   resource_pool_id = "\${data.vsphere_resource_pool.pool.id}"
   datastore_id     = "\${data.vsphere_datastore.datastore.id}"
 
