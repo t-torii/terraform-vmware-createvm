@@ -37,15 +37,3 @@ variable "vmtemp" {
 variable "vmnetlabel" {
   default = ""
 }
-
-variable "mem" {
-  default = ""
-}
-
-variable "cpu" {
-  default = ""
-}
-
-variable "ipaddress" {
-  default = ""
-}
